@@ -1,0 +1,49 @@
+#%Module###<-magic cookie ####################################################
+##
+##   XGSM -- extragalactic sky modeling environment
+##
+##
+# variables for Tcl script use only
+set     version  _XGSMENVVERSION_
+
+module-whatis "Loads software dependencies for the xgsm prototype framework."
+
+proc ModulesHelp { } {
+  global version
+  puts stderr "\t\t xgsm framework software dependencies - Version $version\n"
+  puts stderr "\t This loads a conda environment and other compiled"
+  puts stderr "\t software needed by the xgsm framework."
+  puts stderr ""
+}
+
+conflict xgsmenv
+
+# This is set by OS python and gives us problems.
+unsetenv PYTHONSTARTUP
+
+# This is the conda environment location
+prepend-path PATH _CONDADIR_/bin
+setenv PYTHONPATH _CONDADIR_/lib/python_PYVERSION_/site-packages
+setenv XGSMENV _CONDADIR_
+setenv XGSMENV_VERSION _XGSMENVVERSION_
+
+# for basemap; see https://github.com/matplotlib/basemap/issues/419
+setenv PROJ_LIB _CONDADIR_/share/proj
+
+# in case PrgEnv-_CONDAPRGENV_ is not loaded, swap it in
+setenv CRAYPE_LINK_TYPE dynamic
+if [ module-info mode load ] {
+  if [ is-loaded PrgEnv-_CONDAPRGENV_ ] {
+  } else {
+    if [ is-loaded PrgEnv-cray ] {
+      module swap PrgEnv-cray  PrgEnv-_CONDAPRGENV_
+    }
+    if [ is-loaded PrgEnv-intel ] {
+      module swap PrgEnv-intel PrgEnv-_CONDAPRGENV_
+    }
+    if [ is-loaded PrgEnv-gnu ] {
+      module swap PrgEnv-gnu   PrgEnv-_CONDAPRGENV_
+    }
+  }
+}
+
