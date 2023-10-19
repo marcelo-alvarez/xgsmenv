@@ -6,7 +6,7 @@ Introduction
 ------------
 
 This package contains scripts for installing xgsmenv, an environment for
-running extraglactic sky modeling software under development (xgsm). Currently
+running extraglactic sky modeling software under development. Currently
 configured for running healpy and GPU-enabled jax on Perlmutter at NERSC.
 
 Quick start
@@ -19,7 +19,7 @@ Install::
     mkdir -p ${prefix}
 
     tmp_build_dir=/path-to-temporary-build-directory
-    git clone https://github.com/marcelo-alvarez/xgsmenv ${tmp_build_dir}
+    git clone https://github.com/xgskyhub/xgsmenv ${tmp_build_dir}
     cd ${tmp_build_dir}
 
     unset PYTHONPATH
