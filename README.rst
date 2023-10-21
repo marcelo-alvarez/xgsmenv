@@ -19,7 +19,7 @@ Install::
     mkdir -p ${prefix}
 
     tmp_build_dir=/path-to-temporary-build-directory
-    git clone https://github.com/xgskyhub/xgsmenv ${tmp_build_dir}
+    git clone https://github.com/exgalsky/xgsmenv ${tmp_build_dir}
     cd ${tmp_build_dir}
 
     unset PYTHONPATH
