@@ -6,20 +6,23 @@ conda config --set solver classic
 conda install --yes -n base conda-libmamba-solver
 conda config --set solver libmamba
 
-conda install --yes -c conda-forge -c nvidia \
+conda config --set channel_priority flexible
+conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \
     astropy \
     cuda-nvcc \
     cudatoolkit \
     fitsio \
+    gputil \
     healpy \
     ipython \
-    jax \
-    jaxlib=*=*cuda* \
+    jax=0.4.9 \
+    jaxlib=0.4.7=*cuda* \
     joblib \
     jupyter \
     matplotlib \
     numpy \
     scipy \
+    tensorboard \
  && rm -rf $CONDADIR/pkgs/*
 
 if [ $? != 0 ]; then
