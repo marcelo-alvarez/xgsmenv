@@ -47,6 +47,8 @@ curl -SL $MINICONDA \
     && /bin/bash miniconda.sh -b -f -p $CONDADIR
 
 source $CONDADIR/bin/activate
+conda create -y -n xgsmenv python=3.10
+conda activate xgsmenv
 export PYVERSION=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1]))")
 echo Using Python version $PYVERSION
 

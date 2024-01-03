@@ -15,14 +15,14 @@ conda install --yes -c conda-forge -c nvidia \
     healpy \
     ipython \
     jax \
-    jaxlib=*cuda* \
+    jaxlib=*=*cuda* \
     joblib \
     jupyter \
-    keras=3.* \
     matplotlib \
     numpy \
     scipy \
     tensorboard \
+    tensorflow \
  && rm -rf $CONDADIR/pkgs/*
 
 if [ $? != 0 ]; then

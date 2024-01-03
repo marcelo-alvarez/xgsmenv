@@ -5,6 +5,9 @@ echo Installing pip packages at $(date)
 pip install --force --no-cache-dir --no-binary=mpi4py mpi4py
 pip install cython
 
+# see https://keras.io/getting_started/#tensorflow--keras-2-backwards-compatibility
+pip install -—upgrade keras
+
 if [ $? != 0 ]; then
     echo "ERROR installing pip packages; exiting"
     exit 1
