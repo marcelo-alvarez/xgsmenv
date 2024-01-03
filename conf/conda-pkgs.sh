@@ -14,10 +14,11 @@ conda install --yes -c conda-forge -c nvidia \
     gputil \
     healpy \
     ipython \
-    jax=0.4.9 \
-    jaxlib=0.4.7=*cuda* \
+    jax \
+    jaxlib=*cuda* \
     joblib \
     jupyter \
+    keras=3.* \
     matplotlib \
     numpy \
     scipy \
