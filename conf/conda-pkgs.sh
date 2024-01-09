@@ -6,7 +6,8 @@ conda config --set solver classic
 conda install --yes -n base conda-libmamba-solver
 conda config --set solver libmamba
 
-conda install --yes -c conda-forge -c nvidia \
+conda config --set channel_priority flexible
+conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \
     astropy \
     cuda-nvcc \
     cudatoolkit \
