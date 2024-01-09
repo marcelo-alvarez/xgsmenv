@@ -77,7 +77,7 @@ sed -i 's@_PYVERSION_@'"$PYVERSION"'@g' xgsmenv.module
 sed -i 's@_CONDAPRGENV_@'"$CONDAPRGENV"'@g' xgsmenv.module
 
 cp xgsmenv.module $MODULEDIR/$XGSMENVVERSION
-cp xgsmenv.modversion $MODULEDIR/.version_$XGSMENVVERSION
+cp $topdir/xgsmenv.modversion $MODULEDIR/.version_$XGSMENVVERSION
 
 chgrp -R $GRP $MODULEDIR
 chmod -R u=rwX,g=rX,o-rwx $MODULEDIR
