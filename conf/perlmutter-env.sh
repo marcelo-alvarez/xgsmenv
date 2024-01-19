@@ -13,7 +13,7 @@ export NTMAKE=8
 
 # needed for mpi4py
 # see https://docs.nersc.gov/development/languages/python/using-python-perlmutter
-module load cudatoolkit
+module unload cudatoolkit # ignore the systemwide cudatoolkit to avoid version conflicts
 export MPICC="cc -target-accel=nvidia80 -shared"
 
 for PRGENV in $(echo gnu intel cray nvidia)
