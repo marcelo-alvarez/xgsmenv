@@ -7,11 +7,9 @@ conda install --yes -n base conda-libmamba-solver
 conda config --set solver libmamba
 
 conda config --set channel_priority flexible
-conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \
+conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \      # cuda-nvcc \ # cudatoolkit \
     astropy \
     camb \
-    # cuda-nvcc \
-    # cudatoolkit \
     fitsio \
     gputil \
     healpy \
