@@ -7,7 +7,7 @@ conda install --yes -n base conda-libmamba-solver
 conda config --set solver libmamba
 
 conda config --set channel_priority flexible
-conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \      # cuda-nvcc \ # cudatoolkit \
+conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \
     astropy \
     camb \
     fitsio \
@@ -24,6 +24,7 @@ conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \      # cu
     tensorboard \
  && rm -rf $CONDADIR/pkgs/*
 
+# cuda-nvcc \ # cudatoolkit \
 if [ $? != 0 ]; then
     echo "ERROR installing conda packages; exiting"
     exit 1
