@@ -14,16 +14,15 @@ export NTMAKE=8
 # needed for mpi4py
 # see https://docs.nersc.gov/development/languages/python/using-python-perlmutter
 module unload cudatoolkit # ignore the systemwide cudatoolkit to avoid version conflicts
-module load PrgEnv-gnu cray-mpich cudatoolkit/11.7 craype-accel-nvidia80
 export MPICC="cc -target-accel=nvidia80 -shared"
 
-# for PRGENV in $(echo gnu intel cray nvidia)
-# do
-#   mod=`module -t list 2>&1 | grep PrgEnv-$PRGENV`
-#   if [ "x$mod" != x ] ; then
-#     if [ $PRGENV != $CONDAPRGENV ] ; then
-#       echo "swapping PrgEnv-$PRGENV for PrgEnv-$CONDAPRGENV"
-#       module swap PrgEnv-$PRGENV PrgEnv-$CONDAPRGENV
-#     fi
-#   fi
-# done
+for PRGENV in $(echo gnu intel cray nvidia)
+do
+  mod=`module -t list 2>&1 | grep PrgEnv-$PRGENV`
+  if [ "x$mod" != x ] ; then
+    if [ $PRGENV != $CONDAPRGENV ] ; then
+      echo "swapping PrgEnv-$PRGENV for PrgEnv-$CONDAPRGENV"
+      module swap PrgEnv-$PRGENV PrgEnv-$CONDAPRGENV
+    fi
+  fi
+done

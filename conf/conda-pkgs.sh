@@ -10,6 +10,8 @@ conda config --set channel_priority flexible
 conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \
     astropy \
     camb \
+    cuda-nvcc \
+    cudatoolkit \
     fitsio \
     gputil \
     healpy \
@@ -24,7 +26,6 @@ conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \
     tensorboard \
  && rm -rf $CONDADIR/pkgs/*
 
-# cuda-nvcc \ # cudatoolkit \
 if [ $? != 0 ]; then
     echo "ERROR installing conda packages; exiting"
     exit 1
