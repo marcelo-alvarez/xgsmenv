@@ -33,5 +33,6 @@ fi
 
 conda list --export | grep -v conda > "$CONDADIR/pkg_list.txt"
 conda config --set solver classic
+source $CONDADIR/bin/activate
 
 echo Current time $(date) Done installing conda packages
