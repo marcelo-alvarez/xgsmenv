@@ -26,8 +26,6 @@ CONFDIR=$topdir/conf
 CONFIGUREENV=$CONFDIR/$CONF-env.sh
 INSTALLPKGS=$CONFDIR/$PKGS-pkgs.sh
 
-export PATH=$CONDADIR/bin:$PATH
-
 # Initialize environment
 source $CONFIGUREENV
 
@@ -60,9 +58,6 @@ python$PYVERSION -m compileall -f "$CONDADIR/lib/python$PYVERSION/site-packages"
 
 # Set permissions
 echo Setting permissions at $(date)
-
-chgrp -R $GRP $CONDADIR
-chmod -R u=rwX,g=rX,o-rwx $CONDADIR
 
 # Install modulefile
 echo Installing the xgsmenv modulefile to $MODULEDIR at $(date)

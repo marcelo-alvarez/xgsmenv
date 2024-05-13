@@ -10,14 +10,10 @@ conda config --set channel_priority flexible
 conda install --yes -c conda-forge -c anaconda -c nvidia -c defaults \
     astropy \
     camb \
-    cuda-nvcc \
-    cudatoolkit \
     fitsio \
     gputil \
     healpy \
     ipython \
-    jax=0.4.9 \
-    jaxlib=0.4.7=*cuda* \
     joblib \
     jupyter \
     matplotlib \
