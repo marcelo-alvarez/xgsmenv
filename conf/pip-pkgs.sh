@@ -2,10 +2,6 @@
 echo Installing pip packages at $(date)
 
 # see https://docs.nersc.gov/development/languages/python/parallel-python/
-module unload cudatoolkit
-module list
-echo $PATH 
-echo $LD_LIBRARY_PATH
 pip install --force --no-cache-dir --no-binary=mpi4py mpi4py
 pip install cython
 
